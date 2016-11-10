@@ -100,7 +100,7 @@ def create_network(book, characters, max_distance=15):
 					
 	for i in range(max_distance, len(tokens)):
 		# remove characters outside of the window
-		curr_char_names = curr_chars.keys()
+		curr_char_names = list(curr_chars.keys())
 		for char in curr_char_names:
 			if curr_chars[char] == 1:
 				del curr_chars[char]
