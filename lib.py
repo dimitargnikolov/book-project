@@ -3,7 +3,7 @@ import networkx as nx
 from operator import itemgetter
 
 
-def load_book(filepath):
+def load_text(filepath):
 	with open(filepath, 'r') as f:
 		text = f.read()
 	#text = 'The President invited Andrea and Reijo Nikolov to his house.'
