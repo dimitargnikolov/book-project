@@ -7,7 +7,7 @@ def load_book(filepath):
 	with open(filepath, 'r') as f:
 		text = f.read()
 	#text = 'The President invited Andrea and Reijo Nikolov to his house.'
-	sentences = nltk.sent_tokenize(text.decode('utf-8'))
+	sentences = nltk.sent_tokenize(text)
 	words = [nltk.word_tokenize(sentence) for sentence in sentences]
 	tagged_words = [nltk.pos_tag(sentence) for sentence in words]
 	return tagged_words
@@ -160,4 +160,6 @@ if __name__ == '__main__':
 	network = create_network(book, chars, max_distance=15)
 	print(network.edges())
 
-	nx.write_gml(network, os.path.join('networks', 'alice.gml'))
+	if not os.path.exists(os.path.join(os.getenv('P'), 'networks')):
+		os.makedirs(os.path.join(os.getenv('P'), 'networks'))
+	nx.write_gml(network, os.path.join(os.getenv('P'), 'networks', 'alice.gml'))
