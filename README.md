@@ -193,8 +193,8 @@ How do we determine how strong the edges between characters should be? We will d
 > "**Fantine, Dahlia** *and* **Zéphine** *have been teasing us for nearly
 > a year to give them* a surprise. We have promised them solemnly that we
 > would. They are forever talking about it to us, to me in particular,
-> just as the old women in Naples cry to Saint Januarius, '_Faccia
-> gialluta, fa o miracolo_, Yellow face, perform thy miracle,' so our
+> just as the old women in Naples cry to Saint Januarius, 'Faccia
+> gialluta, fa o miracolo, Yellow face, perform thy miracle,' so our
 > beauties say to me incessantly, 'Tholomyès, when will you bring forth
 > your surprise?' At the same time our parents keep writing to us.
 > Pressure on both sides. The moment has arrived, it seems to me; let us
