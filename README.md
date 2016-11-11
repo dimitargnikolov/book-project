@@ -169,11 +169,6 @@ You can load the text from the search results and run the character extraction a
 
 If you now view the contents of the `chars` variable, you will see something like this:
 
-```
->>> chars
-set([u'O Mouse', u'Pat', u'Crab', u'Seaography', u'Pray', u'Between', u'Character', u'Magpie', u'Latin Grammar', u'How', u'Tears', u'Puss', u'Shakespeare', u'Which', u'Ada', u'Latitude', u'Michael S. Hart', u'Has', u'Mary', u'Poor', u'Dormouse', u'Pepper', u'Mock Turtle', u'Mock Turtle Soup', u'Edgar Atheling', u'Gregory B. Newby', u'Panther', u'Mary Ann', u'Hatter', u'William', u'Brandy', u'Knave', u'Rabbit', u'Grief', u'Release Date', u'Mystery', u'Father William', u'Melan', u'Michael Hart', u'Vanilla', u'Bill', u'Project Gutenberg-tm', u'Alice', u'Gryphon', u'Lizard', u'March Hare', u'Donations', u'Elsie', u'Dinah', u'Lewis Carroll THE', u'Hearts', u'Project Gutenberg', u'Beautiful', u'Project', u'Seven', u'Number One', u'Lacie', u'Dinn', u'Hare', u'Queen', u'Him', u'Down', u'Lewis Carroll', u'Salt Lake City', u'Mabel', u'Kings', u'Mouse', u'Ann', u'Geography'])
-```
-
 The results are not perfect -- there are some characters that shouldn't be there like `Which`, `Project Gutenberg`, `Project Gutenberg-tm` and so on. This is in part due to the fact that the text we are working with is not entirely clean and contains a header and footer that is not actually part of the book. In part, this is due to the entity-extraction algorithm not being perfect and getting fooled by non-traditional capitalization in the book.
 
 This is another illustration of the need for setting up a data pipeline to clean your data before it is analyzed. In this case, we will clean the data manually, since setting up a data pipeline is beyond the scope of this project. 
@@ -195,14 +190,17 @@ Now that you have a list of characters you are interested in analyzing, we want 
 
 How do we determine how strong the edges between characters should be? We will derive this from the text of the book itself assuming that characters that appear close to each other on a page are also more closely related. Programatically, this involves scanning the text of the book using a sliding window of `N` characters and marking increasing the strength of relatedness between any characters who happen to be in the window at the same time. For example, consider this paragraph:
 
-> *Very soon the* **Rabbit** *noticed* **Alice,** *as she went hunting about,
-> and called out to* her in an angry tone, ‘Why, Mary Ann, what
-> ARE you doing out here? Run home this moment, and fetch me a
-> pair of gloves and a fan! Quick, now!’ And Alice was so much
-> frightened that she ran off at once in the direction it
-> pointed to, without trying to explain the mistake it had made.
+> "**Fantine, Dahlia** *and* **Zéphine** *have been teasing us for nearly
+> a year to give them* a surprise. We have promised them solemnly that we
+> would. They are forever talking about it to us, to me in particular,
+> just as the old women in Naples cry to Saint Januarius, '_Faccia
+> gialluta, fa o miracolo_, Yellow face, perform thy miracle,' so our
+> beauties say to me incessantly, 'Tholomyès, when will you bring forth
+> your surprise?' At the same time our parents keep writing to us.
+> Pressure on both sides. The moment has arrived, it seems to me; let us
+> discuss the question."
 
-Here, we are using a window of 15 characters (the italicized portion of text). We start at the beginning of the paragraph and we already see that *Rabbit* and *Alice* appear close together, so we will update the network representation to strengthen the edge between the *Rabbit* and *Alice* nodes.
+Here, we are using a window of 15 characters (the italicized portion of text). We start at the beginning of the paragraph and we already see that *Fantine*, *Dahlia* and *Zephine* appear close together, so we will update the network representation to strengthen the edge between the *Fantine* and *Dahlia*, *Fantine* and *Zephine*, and *Dahlia* and *Zephine* nodes.
 
 We've done all of this for you in `lib.py`, so you can simply use the following function to create the network representation:
 
@@ -226,11 +224,11 @@ If you look at the file that was generated, you will see something that looks li
 graph [
   node [
     id 0
-    label "O Alice"
+    label "Valjean"
   ]
   node [
     id 1
-    label "Rabbit"
+    label "Fantine"
   ]
   ...
   edge [
