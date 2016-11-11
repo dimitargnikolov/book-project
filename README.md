@@ -7,7 +7,7 @@
   1. [Install Python](#install-python)
   2. [Install PyMongo](#install-pymongo)
   3. [Additional Setup Tasks](#additional-setup-tasks)
-4. [Case Study: The Characters Network in *Alice in Wonderland*](#case-study-the-characters-network-for-alice-in-wonderland)
+4. [Case Study: The Characters Network in *Les Miserables*](#case-study-the-characters-network-for-les-mis)
   1. [Adding a Book to MongoDB](#adding-a-book-to-mongodb)
   2. [Extracting the Characters from a Book](#extracting-the-characters-from-a-book)
   3. [Inferring Character Relationships](#inferring-character-relationships)
@@ -103,15 +103,15 @@ $ mongo
 > db.createCollection('books')
 ```
 
-## Case Study: The Characters Network for *Alice in Wonderland*
+## Case Study: The Characters Network for *Les Miserables*
 
-In this case study, you will be walked through all the steps needed to extract and visualize the character relationships in the book *Alice in Wonderland*. There is a [video tutorial]() to go with this section where you can see the steps described below carried out on the screen. 
+In this case study, you will be walked through all the steps needed to extract and visualize the character relationships in the book *Les Miserables*. There is a [video tutorial]() to go with this section where you can see the steps described below carried out on the screen. 
 
 ### Adding a Book to MongoDB
 
-We'll start with a single book, *Alice in Wonderland*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/i435-projectA/data` directory as `alice.txt`. You can do all this from the command line as follows: 
+We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/i435-projectA/data` directory as `lesmis.txt`. You can do all this from the command line as follows: 
 ```
-$ wget http://www.gutenberg.org/files/11/11-0.txt -O ~/Projects/i435-projectA/data/alice.txt
+$ wget http://www.gutenberg.org/files/11/11-0.txt -O ~/Projects/i435-projectA/data/lesmis.txt
 ```
 
 Next, you need to insert the contents of the book in the `books` collection in MongoDB. As mentioned in the introduction, to do this, you will use Python and its PyMongo extension instead of the MongoDB shell, because Python provides the environment and libraries to complete not only this, but other necessary tasks such as reading files, running syntactic analysis and gathering statistics about the text.
@@ -123,8 +123,8 @@ $ python
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
 >>> db = mongodb.projectA
->>> with open('data/alice.txt', 'r') as f: text = f.read()
->>> db.books.insert({'author': 'Lewiss Carroll', 'title': 'Alice in Wonderland', 'text': text})
+>>> with open('data/lesmis.txt', 'r') as f: text = f.read()
+>>> db.books.insert({'author': 'Victor Hugo', 'title': 'Les Miserables', 'text': text})
 ```
 
 The first four lines above set up access to MongoDB and the `projectA` database through the `db` variable. From there on, you can use `db` to execute MongoDB statements in an almost identical way to what you're used to from the MongoDB shell shown to you during discussion.
@@ -143,7 +143,7 @@ You now have the text of the book and in MongoDB for later use and analysis.
 
 ### Extracting the Characters from a Book
 
-Coming up with a list of all characters in a book would be a daunting task even for a book you are familiar with. Fortunately, we can automate this process using a technique called [named-entity recognition](). This technique uses knowledge about a language's grammar combined with statistical properties of text to assign entities in the text to pre-defined groups such as persons, organizations, locations and so on. The current state-of-the-art in named-entity recognition is not perfect, but it's pretty good and you will use it to extract a list of characters in *Alice in Wonderland*.
+Coming up with a list of all characters in a book would be a daunting task even for a book you are familiar with. Fortunately, we can automate this process using a technique called [named-entity recognition](). This technique uses knowledge about a language's grammar combined with statistical properties of text to assign entities in the text to pre-defined groups such as persons, organizations, locations and so on. The current state-of-the-art in named-entity recognition is not perfect, but it's pretty good and you will use it to extract a list of characters in *Les Miserables*.
 
 Named-entity recognition is a common task in natural language processing applications and algorithms for it have been implemented in many languages. We will use Python's `nltk` library to extract a list of person-entities from the book. However, even using these libraries can be a little tricky and beyong the scope of this project, so we have written some code that makes working with book text simple. The code is located in the `lib.py` file that came with th e project. You do not need to understand how the code in this file works, only how to use it. For example, loading the book and extracting the characters is simple.
 
@@ -154,10 +154,10 @@ First, you need to make sure you have access to MongoDB so you can load the cont
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
 >>> db = mongodb.projectA
->>> mongo_results = db.books.find({'title': 'Alice in Wonderland'})
+>>> mongo_results = db.books.find({'title': 'Les Miserables'})
 ```
 
-In the last line, you are using a `find` MongoDB command to retrieve all books in the database with the title *Alice in Wonderland*. Of course, only one book will match the search query, but keep this in mind in the second half of the project where you will be using your own data. 
+In the last line, you are using a `find` MongoDB command to retrieve all books in the database with the title *Les Miserables*. Of course, only one book will match the search query, but keep this in mind in the second half of the project where you will be using your own data. 
 
 You can load the text from the search results and run the character extraction algorithm in three lines. The code might take a few seconds to run, so be patient:
 
@@ -216,10 +216,10 @@ We are going to save the network as a file, so we can use network analysis and v
 
 ```
 import networkx as nx
-nx.write_gml(network, os.path.join('networks', 'alice.gml'))
+nx.write_gml(network, os.path.join('networks', 'lesmis.gml'))
 ```
 
-The details of the command above are not important. Suffice it to say, an `alice.gml` file will appear in the `networks` folder of your project.
+The details of the command above are not important. Suffice it to say, an `lesmis.gml` file will appear in the `networks` folder of your project.
 
 If you look at the file that was generated, you will see something that looks like this:
 ```
@@ -249,7 +249,10 @@ graph [
 
 ### Analyzing and Visualizing the Network of Characters
 
-To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We have created a video tutorial for this step that you can find [here](). At the end of the tutorial, you will produce a visualization of the characters in *Alice of Wonderlaxnd*.
+To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We have created a video tutorial for this step that you can find [here](). At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
+
+![Visualization of the characters of Les Miserables.](les-mis.png "Visualization of the characters of Les Miserables.")
+
 
 ## Analyzing Other Texts
 
@@ -285,6 +288,6 @@ Using this script, you are not limited to a single book or document.
 
 In the Canvas assignment for the project, submit three files:
 
-1. The *Alice in Wonderland* network you created in Gephi (PDF).
+1. The *Les Miserables* network you created in Gephi (PDF).
 2. The network you created in Gephi based on text of your choosing (PDF).
 3. A document with answers to the questions posed above (TXT or DOC/DOCX). 
