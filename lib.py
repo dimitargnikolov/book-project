@@ -13,7 +13,7 @@ def load_text(filepath):
 	return tagged_words
 
 
-def find_characters(tagged_words):
+def find_persons(tagged_words):
 	def extract_people(t):
 		people = set()
 		if hasattr(t, 'label') and t.label is not None:
@@ -129,26 +129,10 @@ def create_network(book, characters, max_distance=15):
 
 if __name__ == '__main__':
 	print('Reading book.')
-	book = load_text(os.path.join('data', 'alice.txt'))
+	book = load_text(os.path.join('data', 'les-mis.txt'))
 
 	print('Finding characters.')
-	chars = find_characters(book)
-
-	chars.remove('Which')
-	chars.remove('Project Gutenberg')
-	chars.remove('Project Gutenberg-tm')
-	chars.remove('Him')
-	chars.remove('Down')
-	chars.remove('Salt Lake City')
-	chars.remove('Lewis Carroll')
-	chars.remove('Release Date')
-	chars.remove('Lewis Carroll THE')
-	chars.remove('Geography')
-	chars.remove('Project')
-	chars.remove('Beautiful')
-	chars.remove('Between')
-	chars.remove('Character')
-	chars.remove('Has')
+	chars = find_persons(book)
 	
 	print('Computing counts.')
 	char_counts = count_char_occur(book, chars)

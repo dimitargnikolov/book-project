@@ -1,4 +1,4 @@
-# I435 Project A: Creating a network of book characters.
+# I435 / I535 / B669 Project B: Creating a Network of Book Characters.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -18,63 +18,25 @@
 
 ## Introduction
 
-In this project you will create a database of books and learn how to analyze and visualize their text. In particular, you will learn how to automatically discover the characters in a book, quantify the strength of relationship between them, find the important characters, and identify groupings between them. We will walk you through a case study of how to:
+In this project you will create a database of books and learn how to analyze and visualize their text. In particular, you will learn how to techniques from natural language processing (NLP) to automatically discover the characters in a book, quantify the strength of relationship between them, find the important characters, identify groupings between them, and finally, create a beatiful visualizatino of your analyses. We will walk you through a case study of how to:
 
 1. Download a book from [Project Gutenberg](https://www.gutenberg.org/) and import it into MongoDB.
-2. Use [Python]() and text analysis libraries to extract a list of characters the book.
+2. Use [Python](https://www.python.org/) and its [Natural Language ToolKit (NLTK)](http://www.nltk.org/) library to extract a list of characters the book.
 3. Learn how to process the text of the book to create a network of relationships between the characters.
 4. Learn a couple common ways to analyze a network using network science tools.
-5. Visualize the character relationships using the [Gephi]() graph visualization platform.
+5. Visualize the character relationships using the [Gephi](https://gephi.org/) graph visualization platform.
 
 Following the case study, you will carry out the same analyses on a book, or a set of texts you are familiar with, and share your insights.
 
 ## Prerequisites
 
-You need to be familiar with what we have been covering during the last 4 weeks of discussions. In particular, you need to:
+You need to be familiar with what we have been covering during the last several weeks of discussions. In particular, you need to:
 
-1. Have your Jetstream account and allocation ready to use. If you don't, please refer to the [XSEDE Account Guide]() and the [Using Jetstream]() tutorials.
+1. Have your Jetstream account and allocation ready to use. If you don't, please refer to the [XSEDE Account Guide](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Creating_XSEDE_Account__Jetstream_Tutorial_.pdf) and the [Using Jetstream](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Using_Jetstream.pdf) tutorials.
 
-2. Be able to upload files to your Jetstream instance. If you don't know how to do this, please refer to the [Setting Up SSH Keys]() and [Transfering files to Jetstream]() tutorials.
-
-3. Be able to use the `mongodb` installation on the project image with the right security privileges. If you are still running into any permissions issues, please refer to the [Using Jetstream]() tutorial about how to disable authentication in MongoDB.
+2. Be able to upload files to your Jetstream instance. If you don't know how to do this, please refer to the [Setting Up SSH Keys](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Generating_SSH_Key.pdf) and [Transfering files to Jetstream](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Transfering_Files_to_Jetstream.pdf) tutorials.
 
 ## Setup
-
-Before you start, there are a few more pieces of software that you need to install on your instance of Jetstream. There is a [video tutorial]() where you can see the steps described below carried out on the screen.
-
-To start the setup process, open your copy of the *I535-I435-B669 Project A* instance and start the Web Shell.
-
-### Install Python
-Python is a simple, yet powerful programming language, that is often used for data science. **You do not need prior experience with Python** to complete this project. To set up Python, download the Anaconda Python distribution into the `Downloads` directory on Jetstream.
-```
-$ cd ~/Downloads
-$ wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-```
-
-Run the Python installation script as shown below. In the course of the installation, answer *yes* to any *yes/no* questions the installation asks. For all other questions, leave the default answer.
-```
-$ bash Anaconda3-4.2.0-Linux-x86_64.sh
-```
-
-Refresh the system paths, so that next time you start Python, the system is using your new installation.
-```
-$ source ~/.bashrc
-```
-
-### Install PyMongo
-`pymongo` is an addition to Python that allows it to easily interact with MongoDB datastores. Download `pymongo` from its *GitHub* repository as follows:
-
-```
-$ cd ~/Downloads
-$ git clone git://github.com/mongodb/mongo-python-driver.git pymongo
-```
-
-Run the installation scripts:
-```
-$ cd pymongo
-$ python setup.py build
-$ python setup.py install
-```
 
 ### Project Files
 
@@ -88,14 +50,6 @@ $ cd i435-projectA
 ```
 
 ### Additional Setup Tasks
-
-Finally, there are a few directories and libraries that need to be set up for the case-study to work.
-
-```
-$ python
->>> import nltk
->>> nltk.download()
-```
 
 ```
 $ mongo
