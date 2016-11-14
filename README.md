@@ -271,8 +271,8 @@ Using this script, you are not limited to a single book or document.
 For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit to the Canvas assignment for the project.
 
 1. The report (DOC, DOCX, PDF) that you write must contain: 
-  -- Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
-  -- Answers the questions in 3-5 below depending on which parts of the project you decided to do. 
+1 a. Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
+1 b. Answers the questions in 3-5 below depending on which parts of the project you decided to do. 
 
 2. For those who carried out Les Miserables analysis, your report will answer 2a-2b, and you will submit file 2c.  
 
