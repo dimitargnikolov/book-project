@@ -44,15 +44,13 @@ You need to be familiar with what we have been covering during the last several 
 
 We will continue to use Jetstream in this project. With a new allocation and the issues from a couple weeks ago largely resolved, this time you should have a smooth experience if you follow these instructions.
 
-There is a new image for this project that comes pre-loaded with necessary software such as Python and mongodb. Head on over to [use.jetstream-cloud.org](https://use.jetstream-cloud.org) and create a new instance of the *I435/I535/B669 Project B* image (created either by user *atmoadmin* or *dnikolov*). You can find the image by searching for **I435**:
+There is a new image for this project that comes pre-loaded with necessary software such as Python and mongodb. Head on over to [use.jetstream-cloud.org](https://use.jetstream-cloud.org) and create a new instance of the *I435/I535/B669 Project B* image (created either by user *atmoadmin* or *dnikolov*). You can find the image by searching for *I435*:
 
 ![Project image on Jetstream.](images/jetstream-image.png "Project image on Jetstream.")
 
-When you create the new instance, please use the *Jetstream - TACC* provider and the *tiny* instance size to avoid any hanging issues or needlessly spending our allocation:
+When you create the new instance, please use the **Jetstream - TACC** provider and the **tiny** instance size to avoid any hanging issues or needlessly spending our allocation:
 
 ![Creating a new instance.](images/create-instance.png "Creating a new instance.")
-
-Unless otherwise noted, all commands in this document should be executed on your Jetstream instance.
 
 ### Set Up Directories and Download Code
 
