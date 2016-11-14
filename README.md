@@ -270,6 +270,14 @@ The script will insert any `.txt` file in the `data` directory in MongoDB with a
 
 Using this script, you are not limited to a single book or document.
 
+## Analyzing Les Miserables content using HathiTrust Data Capsule  (Extra credit option 2)
+
+Where Project Gutenberg has a single cleaned up version of Les Miserables, the HathiTrust Digital Library has numerous versions available across multiple parts.   Up to 20 students will carry out the analysis of Les Miserables not in the XSEDE Jetstream virtual machine, but in a virtual machine that has security controls to enable analysis over copyright content. A VM instance is called a Data Capsule.  The student will use NLTK and python already in the Data Capsule, and install other tools needed to carry out the analysis.  The students will work with the HathiTrust Research Center development team to line up the tools needed for the analysis pipeline. See here for more details about the Data Capsule:  https://wiki.htrc.illinois.edu/display/COM/HathiTrust+Research+Center+Documentation.  
+
+Students are encouraged to sign up for an account on the HathiTrust web site https://analytics.hathitrust.org/. Once there, select "capsule" from the menu bar at the top, and go through the steps of creating a Data Capsule. You will need to create another password for the capsule - a "feature" the team is trying to remove.   Any student can play with a Data Capsule during the period 14-20 November 2016.   After 20 November student data capsules will be removed and only the 20 students who signed up to work on the project will have their Data Capsule available to continue.  
+
+Sign up with Professor Plale. Availability is on a first come, first serve basis.  This project will rely in existing tutorial material so is best suited for self-starters with time, tolerance, and background for pushing the bleeding edge and contributing to research. 
+
 ## Report and Deliverable
 
 For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit the portfolio of materials through Canvas.
