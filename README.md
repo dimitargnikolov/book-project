@@ -1,6 +1,6 @@
 # I435 / I535 / B669 Project B: Analyzing Large Text Corpora
 
-*Due: Monday, December 5 @ 11:59pm*
+### Due: Monday, December 5 @ 11:59pm
 
 ## Table of Contents
 1. [Introduction](#introduction)
