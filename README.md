@@ -20,7 +20,7 @@
 
 ## Introduction
 
-In this project you will create a database of books and learn how to analyze and visualize their text. In particular, you will learn how to techniques from natural language processing (NLP) to automatically discover the characters in a book, quantify the strength of relationship between them, find the important characters, identify groupings between them, and finally, create a beatiful visualizatino of your analyses. We will walk you through a case study of how to:
+In this project you will create a database of books and learn how to analyze and visualize their text. In particular, you will learn how to techniques from natural language processing (NLP) to automatically discover the characters in a book, quantify the strength of relationship between them, find the important characters, identify groupings between them, and finally, create a beautiful visualization of your analyses. We will walk you through a case study of how to:
 
 1. Download a book from [Project Gutenberg](https://www.gutenberg.org/) and import it into MongoDB.
 2. Use [Python](https://www.python.org/) and its [Natural Language ToolKit (NLTK)](http://www.nltk.org/) library to extract a list of characters the book.
@@ -29,6 +29,8 @@ In this project you will create a database of books and learn how to analyze and
 5. Visualize the character relationships using the [Gephi](https://gephi.org/) graph visualization platform.
 
 Following the case study, you will carry out the same analyses on a book, or a set of texts you are familiar with, and share your insights.
+
+The project will be graded as follows:  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    A student who does something exceptional in both the content that he or she is analyzing and how he or she is interpreting the analysis results will recieve up to 103 points. 
 
 ## Prerequisites
 
