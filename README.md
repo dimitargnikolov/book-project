@@ -65,7 +65,22 @@ $ git clone https://github.com/dimitargnikolov/book-project.git
 $ cd book-project
 ```
 
-Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
+In addition, you need to copy the sample start-up script provided with the project code to your home directory as follows:
+
+```
+$ cp sample.bashrc ~/.bashrc
+$ source .bashrc
+```
+
+These commands create a start-up script called `.bashrc` in your home directory. `.bashrc` is a special file that Linux looks for when it starts up, and thus, it will be executed every time your instance starts. In this case, since you already have your instance started, we executed the file manually with the `source` command. You can take a look at the contents if you like:
+
+```
+$ cat ~/.bashrc
+```
+
+All the script does is it creates two environmental variables -- one that allows the code to easily find your project directory, and the other, that makes sure your instance knows where to find the correct version of Python.
+
+With this, the set up of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
 
 ## Case Study: The Characters Network for *Les Miserables*
 
