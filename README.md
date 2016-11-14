@@ -16,7 +16,7 @@
   3. [Inferring Character Relationships](#inferring-character-relationships)
   4. [Analyzing and Visualizing the Network of Characters](#analyzing-and-visualizing-the-network-of-characters)
 5. [Analyzing Other Texts (Minimal Plus portion of project)](#analyzing-oher-texts-minimal-plus-portion-of-project)
-6. [Analyzing Les Miserables content using HathiTrust Data Capsule  (Extra credit option 2)](#analyzing-les-miserables-content-using-hathitrust-data-capsule-extra-credit-option-2)
+6. [Analyzing Les Miserables content using HathiTrust Data Capsule (Extra credit option 2)](#analyzing-les-miserables-content-using-hathitrust-data-capsule-extra-credit-option-2)
 7. [Report and Deliverable](#report-and-deliverable)
 
 ## Introduction
@@ -271,7 +271,7 @@ The script will insert any `.txt` file in the `data` directory in MongoDB with a
 
 Using this script, you are not limited to a single book or document.
 
-## Analyzing Les Miserables content using HathiTrust Data Capsule  (Extra credit option 2)
+## Analyzing Les Miserables content using HathiTrust Data Capsule (Extra credit option 2)
 
 Where Project Gutenberg has a single cleaned up version of Les Miserables, the HathiTrust Digital Library has numerous versions available across multiple parts.   Up to 20 students will carry out the analysis of Les Miserables not in their XSEDE Jetstream virtual machine, but in a special virtual machine in the HathiTrust Research Center (HTRC) that has security controls enabled for analysis over in-copyright content. A VM instance in HTRC is called a Data Capsule.  The student will use the NLTK toolkit and python already installed in the Data Capsule, and work with the HathiTrust Research Center development team to install other tools needed to carry out make a complete pipeline for analysis. See here for more details about the Data Capsule:  https://wiki.htrc.illinois.edu/display/COM/HathiTrust+Research+Center+Documentation.  
 
