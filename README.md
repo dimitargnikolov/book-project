@@ -99,6 +99,8 @@ Next, you need to insert the contents of the book in the `books` collection in M
 ```
 $ cd ~/Projects/book-project
 $ python
+```
+```python
 >>> import pymongo
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
@@ -113,13 +115,13 @@ The first four lines from the Python shell above set up access to MongoDB and th
 
 The fifth line, reads the contents of the book that you downloaded and stores it in the variable `text`. In Python, you can see the contents of a variable at any time by typing its name, so if you type
 
-```
+```python
 >>> text
 ```
 
 you will see the contents of the book scroll through your screen. This is too much text to be useful, so you can type the following instead, to only look at the first 100 characters of the text:
 
-```
+```python
 >>> text[:100]
 ```
 
@@ -163,10 +165,8 @@ This is another illustration of the need for setting up a data pipeline to clean
 
 You can quickly clean up the list of characters as follows:
 
-```
->>> chars.remove('Which')
->>> chars.remove('Project Gutenberg')
->>> chars.remove('Project Gutenberg-tm')
+```python
+>>> chars.remove('A')
 ...
 ```
 
@@ -192,7 +192,7 @@ Here, we are using a window of 15 characters (the italicized portion of text). W
 
 We've done all of this for you in `lib.py`, so you can simply use the following function to create the network representation:
 
-```
+```python
 network = create_network(book, chars, N=15) 
 ```
 
@@ -200,7 +200,7 @@ Note that the number of characters in the sliding window can be specified. In th
 
 We are going to save the network as a file, so we can use network analysis and visualization tools on it:
 
-```
+```python
 import networkx as nx
 nx.write_gml(network, os.path.join('networks', 'lesmis.gml'))
 ```
@@ -253,10 +253,9 @@ The case study gives you the tools to analyze any collection of texts and extrac
 
 For this part of the project, repeat this analysis for a book or a collection of texts of your choosing. You can take another book from Project Gutenberg, a set of books who share characters, or a set of news articles or blog entries. The source and format of the text is up to you, as long as you can import it into MongoDB.
 
-To make your life easier, we'll provide you with a function that can import a collection of text files into MongoDB. Say, you've collected your texts as plain-text files and you've uploaded them to your Jetstream instance in `~/Projects/i435-projectA/data`. Then, you can important all these files in Python using these commands:
+To make your life easier, we'll provide you with a function that can import a collection of text files into MongoDB. Say, you've collected your texts as plain-text files and you've uploaded them to your Jetstream instance in `~/Projects/i435-projectA/data`. Then, you can important all these files in the Python shell as follows:
 
-```
-$ python
+```python
 >>> from lib import *
 >>> insert_txt_to_mongodb('data/')
 ```
