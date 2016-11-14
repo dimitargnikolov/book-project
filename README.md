@@ -54,7 +54,9 @@ When you create the new instance, please use the **Jetstream - TACC** provider a
 
 ### Set Up Directories and Download Code
 
-You need to set up a directory for the project and download the code for it using **Git**, a popular system for version control and project file management.
+Once your instance is active, go ahead and access it via the *Web Shell* or an *ssh* client of your choice.
+
+You need to set up a directory for the project and download the code for it using *Git*, a popular system for version control and project file management.
 
 ```
 $ mkdir ~/Projects
@@ -62,17 +64,19 @@ $ cd ~/Projects
 $ git clone https://github.com/dimitargnikolov/book-project.git
 $ cd book-project
 ```
+
 Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
 
 ## Case Study: The Characters Network for *Les Miserables*
 
-In this case study, you will be walked through all the steps needed to extract and visualize the character relationships in the book *Les Miserables*. There is a [video tutorial]() to go with this section where you can see the steps described below carried out on the screen. 
+In this case study, we will walk you through all the steps needed to extract and visualize the character relationships in the book *Les Miserables*.
 
 ### Adding a Book to MongoDB
 
-We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/i435-projectA/data` directory as `lesmis.txt`. You can do all this from the command line as follows: 
+We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/book-projectA/data` directory as `les-mis.txt`. You can do all this from the command line as follows:
+
 ```
-$ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/book-project/data/lesmis.txt
+$ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/book-project/data/les-mis.txt
 ```
 
 Next, you need to insert the contents of the book in the `books` collection in MongoDB. As mentioned in the introduction, to do this, you will use Python and its PyMongo extension instead of the MongoDB shell, because Python provides the environment and libraries to complete not only this, but other necessary tasks such as reading files, running syntactic analysis and gathering statistics about the text.
@@ -88,7 +92,9 @@ $ python
 >>> db.books.insert({'author': 'Victor Hugo', 'title': 'Les Miserables', 'text': text})
 ```
 
-The first four lines above set up access to MongoDB and the `projectA` database through the `db` variable. From there on, you can use `db` to execute MongoDB statements in an almost identical way to what you're used to from the MongoDB shell shown to you during discussion.
+You will notice that as soon as you type `python` the shell symbol changes from the familiar `$` to `>>>`. This means you are in the Python shell (as opposed to the system shell). You can exit the Python shell at any time by pressing `Ctrl-D`.
+
+The first four lines from the Python shell above set up access to MongoDB and the `projectA` database through the `db` variable. From there on, you can use `db` to execute MongoDB statements in an almost identical way to what you're used to from the MongoDB shell shown to you during discussion.
 
 The fifth line, reads the contents of the book that you downloaded and stores it in the variable `text`. In Python, you can see the contents of a variable at any time by typing its name, so if you type
 
@@ -96,7 +102,13 @@ The fifth line, reads the contents of the book that you downloaded and stores it
 >>> text
 ```
 
-you will see the contents of the book scroll through your screen.
+you will see the contents of the book scroll through your screen. This is too much text to be useful, so you can type the following instead, to only look at the first 100 characters of the text:
+
+```
+>>> text[:100]
+```
+
+You should get in the habit of looking at the contents of variables in this way, as it will prove useful when debugging any errors.
 
 Finally, the last line should be familiar, since it's identical to an `insert` command you would issue in the MongoDB shell. It puts the book in the `books` collection in MongoDB as an object consisting of an *author*, *title* and the *text* of the book.
 
