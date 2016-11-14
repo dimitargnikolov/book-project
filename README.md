@@ -33,9 +33,7 @@ Following the case study, you will carry out the same analyses on a book, or a s
 You need to be familiar with what we have been covering during the last several weeks of discussions. In particular, you need to:
 
 1. Have your Jetstream account and allocation ready to use. If you don't, please refer to the [XSEDE Account Guide](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Creating_XSEDE_Account__Jetstream_Tutorial_.pdf) and the [Using Jetstream](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Using_Jetstream.pdf) tutorials.
-
 2. Be able to upload files to your Jetstream instance. If you don't know how to do this, please refer to the [Setting Up SSH Keys](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Generating_SSH_Key.pdf) and [Transfering files to Jetstream](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Transfering_Files_to_Jetstream.pdf) tutorials.
-
 3. Have the [Linux command cheat sheet](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/LinuxCommandsCheatSheet.pdf) we posted earlier in the class handy.
 
 ## Setup
@@ -235,7 +233,7 @@ graph [
 
 ### Analyzing and Visualizing the Network of Characters
 
-To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We have created a video tutorial for this step that you can find [here](). At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
+To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We will do a tutorial on Gephi during discussion, and will provide a recording of it as well. At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
 
 ![Visualization of the characters of Les Miserables.](images/les-mis.png "Visualization of the characters of Les Miserables.")
 
