@@ -231,7 +231,7 @@ graph [
 
 ### Analyzing and Visualizing the Network of Characters
 
-To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We will do a tutorial on Gephi during discussion, and will provide a recording of it as well. At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
+To analyze this network, you will use the [Gephi graph analysis and visualization platform](https://gephi.org/). We will do a tutorial on Gephi during discussion, and will provide a recording of it as well. At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
 
 ![Visualization of the characters of Les Miserables.](images/les-mis.png "Visualization of the characters of Les Miserables.")
 
@@ -270,5 +270,6 @@ Using this script, you are not limited to a single book or document.
 In the Canvas assignment for the project, submit three files:
 
 1. The *Les Miserables* network you created in Gephi (PDF).
-2. The network you created in Gephi based on text of your choosing (PDF).
-3. A document with answers to the questions posed above (TXT or DOC/DOCX). 
+2. An archive containing the text(s) you chose to analyze in the second part of the project (ZIP).
+3. The network you created in Gephi based on text of your choosing (PDF).
+4. A document with answers to the questions posed above (TXT or DOC/DOCX). 
