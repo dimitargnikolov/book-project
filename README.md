@@ -30,7 +30,11 @@ In this project you will create a database of books and learn how to analyze and
 
 You will follow the case study, then if you choose, you will identify other content to analyze and share your insights.
 
-The project will be graded as follows:  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    A student who does something exceptional in both the content that he or she is analyzing and how he or she is interpreting the analysis results will receive up to 103 points. 
+The project will be graded as follows:  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    
+
+Extra Credit: Option 1)  A student engages in an exceptional analysis using both originally chosen content, parameter tuning, data cleaning, and analysis interpretation (such as meaningfully interpreting results through steps of cleaning) will receive up to 10 extra credit points.    
+
+Extra Credit: Option 2) Available to the first 20 students who sign up, students will carry out the Les Miserables analysis using the HathiTrust Research Center Data Capsules.  There are hundreds of files for Les Miserables (it has multiple parts and duplicate versions) in the HathiTrust digital library.  Your report will compare the results of analysis on HathiTrust Les Mis content compared to the book in Project Gutenberg.  A student will receive up to 10 extra credit points for his/her own work.   Sign up with Professor Plale. Availability is on a first come, first serve basis.  
 
 ## Prerequisites
 
@@ -268,24 +272,28 @@ Using this script, you are not limited to a single book or document.
 
 ## Report and Deliverable
 
-For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit to the Canvas assignment for the project.
+For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit the portfolio of materials through Canvas.
 
-1. The report (DOC, DOCX, PDF) that you write must contain: 
+Report:  You will submit a report (DOC, DOCX, PDF) that must contain: 
   1. Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
-  2. Answers the questions in 3-4 below depending on which parts of the project you decided to do. 
+  2. Answers the questions in Minimal, Minimal Plus, and Extra Credit Options 1 or 2 depending on which parts of the project you decide to do. 
 
-Minimal: For those who carried out Les Miserables analysis, your report will include below:
+Minimal: Everyone does the Les Miserables analysis, so your report must include below:
   1. Is a window of size 15 a good window size for the characters that you think are related?  
   2. What are the strengths and weaknesses of a larger window size?  Give an example of a relationship that was missed because of a window size of N=15
   3. Include a copy of the network graph (or portion of it) that you generated for the characters in Les Miserables from Gephi (PDF)
 
-Minimal Plus:   For those who carried out the Les Miserables analysis plus analysis over own content, the report will include all for "minimal" plus three steps below:
+Minimal Plus:   For those who carried out the Les Miserables analysis plus analysis over own content, your report will include all for "Minimal" plus three steps below:
   1. When you analyzed texts of your own choosing that you're familiar with or interested in, did you glean any insights from this type of analysis that would be harder to glean from a simple readthrough?
   2. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose (PDF)
   3. An archive containing the text(s) you chose to analyze (ZIP).
 
-Extra Credit Option 1:  Your report will include Minimal and Minimal Plus as well as below: 
+Extra Credit Option 1: Going a Step Beyond in Refinement and Quality Analysis:  Your report will include Minimal and Minimal Plus as well as below: 
   1. When you extract the characters, create the network representation and apply the network analysis algorithms, there is some fine-tuning of the algorithms that needs to happen. Try exhaustively cleaning your list of characters, adjusting the parameter values for the length of the text window, or the number of communities. How do the results differ? Did you need to do a lot of fine-tuning to produce a visualization that was useful and easy to understand? What ways of automating this fine-tuning can you think of?
-  2. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning suggested in 4.i (PDF)
+  2. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning that you carried out (PDF)
   3. An archive containing the text(s) you chose to analyze in the second part of the project (ZIP)
 
+Extra Credit Option 2: Analysis using HathiTrust Data Capsules:   Your report will include Minimal and Minimal Plus as well as below:  
+  1. Your report should include a discussion of issues that you encountered (you will be helping develop a stronger Data Capsule)
+  2. Carry out a comparison of the network graph that you produced for the Gutenberg book against the network graph generaged on the content in HathiTrust digital library.   Offer explanations for the differences that you see.  
+  3.  Include a copy of the graph (or portion of it) that you generated for the characters (PDF)  
