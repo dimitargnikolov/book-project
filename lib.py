@@ -3,17 +3,19 @@ import networkx as nx
 from operator import itemgetter
 
 
-def load_text(filepath):
-	with open(filepath, 'r') as f:
-		text = f.read()
+def tag_texts(mongo_results):
 	#text = 'The President invited Andrea and Reijo Nikolov to his house.'
-	sentences = nltk.sent_tokenize(text)
-	words = [nltk.word_tokenize(sentence) for sentence in sentences]
-	tagged_words = [nltk.pos_tag(sentence) for sentence in words]
-	return tagged_words
+	tagged_texts = []
+	for result in mongo_results:
+		text = result['text']
+		sentences = nltk.sent_tokenize(text)
+		words = [nltk.word_tokenize(sentence) for sentence in sentences]
+		tagged_words = [nltk.pos_tag(sentence) for sentence in words]
+		tagged_texts.append(tagged_words)
+	return tagged_texts
 
 
-def find_persons(tagged_words):
+def find_people(tagged_texts):
 	def extract_people(t):
 		people = set()
 		if hasattr(t, 'label') and t.label is not None:
@@ -27,14 +29,15 @@ def find_persons(tagged_words):
 					people.update(extract_people(child))
 		return people
 
-	chunks = nltk.ne_chunk_sents(tagged_words, binary=False)
 	chars = set()
-	for tree in chunks:
-		chars.update(extract_people(tree))
+	for text in tagged_texts:
+		chunks = nltk.ne_chunk_sents(text, binary=False)
+		for tree in chunks:
+			chars.update(extract_people(tree))
 	return chars
 
 
-def transform_book(tagged_words):
+def transform_tagged_text(tagged_text):
 	def transform_tree(t, tokens):
 		if hasattr(t, 'label') and t.label is not None:
 			if t.label() == 'PERSON':
@@ -50,25 +53,25 @@ def transform_book(tagged_words):
 			if token != '':
 				tokens.append(token)
 
-	chunks = nltk.ne_chunk_sents(tagged_words, binary=False)
+	chunks = nltk.ne_chunk_sents(tagged_text, binary=False)
 	tokens = []
 	for tree in chunks:
 		transform_tree(tree, tokens)
 	return tokens
 
 
-def count_char_occur(book, characters):
+def count_char_occur(tagged_texts, characters):
 	counts = {char: 0 for char in characters}
-	book_new = transform_book(book)
-	for token in book_new:
-		if token in characters:
-			counts[token] += 1
+	for text in tagged_texts:
+		text_new = transform_tagged_text(text)
+		for token in text_new:
+			if token in characters:
+				counts[token] += 1
 	return counts
 
 
-def create_network(book, characters, max_distance=15):
+def create_network(tagged_texts, characters, max_distance=15):
 	network = {}
-	tokens = transform_book(book)
 	
 	# initialize the network
 	for char1 in characters:
@@ -83,38 +86,41 @@ def create_network(book, characters, max_distance=15):
 				if char1 not in network[char2]:
 					network[char2][char1] = 0
 
-	# process the first window in the book, filling in the list of characters in the current window
-	curr_chars = {}
-	window = tokens[:max_distance]
-	for i in range(len(window)):
-		if window[i] in characters:
-			curr_chars[window[i]] = i + 1
+	for text in tagged_texts:
+		tokens = transform_tagged_text(text)
+		
+		# process the first window in the book, filling in the list of characters in the current window
+		curr_chars = {}
+		window = tokens[:max_distance]
+		for i in range(len(window)):
+			if window[i] in characters:
+				curr_chars[window[i]] = i + 1
 
-	# if there are more than 1 characters already, add links to them in the network
-	if len(curr_chars) > 1:
-		for char1 in curr_chars.keys():
-			for char2 in curr_chars.keys():
-				if char1 != char2:
-					network[char1][char2] += 1
-					network[char2][char1] += 1
-					
-	for i in range(max_distance, len(tokens)):
-		# remove characters outside of the window
-		curr_char_names = list(curr_chars.keys())
-		for char in curr_char_names:
-			if curr_chars[char] == 1:
-				del curr_chars[char]
-			else:
-				curr_chars[char] -= 1
+		# if there are more than 1 characters already, add links to them in the network
+		if len(curr_chars) > 1:
+			for char1 in curr_chars.keys():
+				for char2 in curr_chars.keys():
+					if char1 != char2:
+						network[char1][char2] += 1
+						network[char2][char1] += 1
 
-		# if the token is a character, add it to the list
-		token = tokens[i]
-		if token in characters:
-			for char in curr_chars.keys():
-				if char != token:
-					network[char][token] += 1
-					network[token][char] += 1
-			curr_chars[token] = max_distance
+		for i in range(max_distance, len(tokens)):
+			# remove characters outside of the window
+			curr_char_names = list(curr_chars.keys())
+			for char in curr_char_names:
+				if curr_chars[char] == 1:
+					del curr_chars[char]
+				else:
+					curr_chars[char] -= 1
+
+			# if the token is a character, add it to the list
+			token = tokens[i]
+			if token in characters:
+				for char in curr_chars.keys():
+					if char != token:
+						network[char][token] += 1
+						network[token][char] += 1
+				curr_chars[token] = max_distance
 
 	# make networkx graph
 	G = nx.Graph()
@@ -128,22 +134,4 @@ def create_network(book, characters, max_distance=15):
 
 
 if __name__ == '__main__':
-	print('Reading book.')
-	book = load_text(os.path.join('data', 'les-mis.txt'))
-
-	print('Finding characters.')
-	chars = find_persons(book)
-	
-	print('Computing counts.')
-	char_counts = count_char_occur(book, chars)
-	
-	sorted_counts = sorted(char_counts.items(), key=itemgetter(1), reverse=True)
-	print(sorted_counts)
-
-	print('Creating network.')
-	network = create_network(book, chars, max_distance=15)
-	print(network.edges())
-
-	if not os.path.exists(os.path.join(os.getenv('P'), 'networks')):
-		os.makedirs(os.path.join(os.getenv('P'), 'networks'))
-	nx.write_gml(network, os.path.join(os.getenv('P'), 'networks', 'alice.gml'))
+	print('This file is meant to be imported into other code, not to be run directly.')

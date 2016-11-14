@@ -1,4 +1,4 @@
-# I435 / I535 / B669 Project B: Creating a Network of Book Characters.
+# I435 / I535 / B669 Project B: Using Text and Network Analysis Tools to Analyze Large Text Corpora
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -65,7 +65,7 @@ In this case study, you will be walked through all the steps needed to extract a
 
 We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/i435-projectA/data` directory as `lesmis.txt`. You can do all this from the command line as follows: 
 ```
-$ wget http://www.gutenberg.org/files/11/11-0.txt -O ~/Projects/i435-projectA/data/lesmis.txt
+$ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/i435-projectA/data/lesmis.txt
 ```
 
 Next, you need to insert the contents of the book in the `books` collection in MongoDB. As mentioned in the introduction, to do this, you will use Python and its PyMongo extension instead of the MongoDB shell, because Python provides the environment and libraries to complete not only this, but other necessary tasks such as reading files, running syntactic analysis and gathering statistics about the text.
