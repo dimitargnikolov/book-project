@@ -34,7 +34,7 @@ You will follow the case study, then if you choose, you will identify other cont
 
 **Extra Credit: Option 1 Going a Step Beyond in Refinement and Quality Analysis:**  A student engages in an exceptional analysis using both originally chosen content, parameter tuning, data cleaning, and analysis interpretation (such as meaningfully interpreting results through steps of cleaning) will receive up to 10 extra credit points.    
 
-**Extra Credit: Option 2 Analysis using HathiTrust Data Capsules:**   Available to the first 20 students who sign up, students will carry out the Les Miserables analysis using the HathiTrust Research Center Data Capsules.  There are hundreds of files for Les Miserables (it has multiple parts and duplicate versions) in the HathiTrust digital library.  Your report will compare the results of analysis on HathiTrust Les Mis content compared to the book in Project Gutenberg.  A student will receive up to 10 extra credit points for his/her own work.   Sign up with Professor Plale. Availability is on a first come, first serve basis.  
+**Extra Credit: Option 2 Analysis using HathiTrust Data Capsules:**   Available to the first 20 students who sign up, students will carry out the Les Miserables analysis using the HathiTrust Research Center Data Capsules.  There are hundreds of files for Les Miserables (it has multiple parts and duplicate versions making a whopping 536 relevant books) in the HathiTrust digital library.  Your report will compare the results of analysis on HathiTrust Les Mis content compared to the book in Project Gutenberg.  A student will receive up to 10 extra credit points for his/her own work.   Sign up with Professor Plale. Availability is on a first come, first serve basis.  This project will rely in existing tutorial material so is best suited for self-starters with time, tolerance, and background for pushing the bleeding edge and contributing to research. 
 
 ## Prerequisites
 
@@ -246,7 +246,7 @@ To analyze this network, you will use the [Gephi graph analysis and visualizatio
 ![Visualization of the characters of Les Miserables.](images/les-mis.png "Visualization of the characters of Les Miserables.")
 
 
-## Analyzing Other Texts
+## Analyzing Other Texts (Minimal Plus portion of project)
 
 The case study gives you the tools to analyze any collection of texts and extract and visualize a network of the people mentioned. The steps are the same:
 
