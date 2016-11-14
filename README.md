@@ -80,7 +80,7 @@ $ cat ~/.bashrc
 
 All the script does is it creates two environmental variables -- one that allows the code to easily find your project directory, and the other, that makes sure your instance knows where to find the correct version of Python.
 
-With this, the set up of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
+With this, the setup of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
 
 ## Case Study: The Characters Network for *Les Miserables*
 
@@ -137,7 +137,7 @@ Named-entity recognition is a common task in natural language processing applica
 
 First, you need to make sure you have access to MongoDB so you can load the contents of the book:
 
-```
+```python
 >>> import pymongo
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
@@ -149,10 +149,10 @@ In the last line, you are using a `find` MongoDB command to retrieve all books i
 
 You can load the text from the search results and run the character extraction algorithm in three lines. The code might take a few seconds to run, so be patient:
 
-```
+```python
 >>> from lib import *
->>> book = load_text(mongo_results)
->>> chars = find_people(book)
+>>> tagged_texts = tag_texts(mongo_results)
+>>> chars = find_people(tagged_texts)
 ```
 
 If you now view the contents of the `chars` variable, you will see something like this:
