@@ -15,8 +15,9 @@
   2. [Extracting the Characters from a Book](#extracting-the-characters-from-a-book)
   3. [Inferring Character Relationships](#inferring-character-relationships)
   4. [Analyzing and Visualizing the Network of Characters](#analyzing-and-visualizing-the-network-of-characters)
-5. [Analyzing Other Texts](#analyzing-other-texts)
-6. [Questions](#questions)
+5. [Analyzing Other Texts (Minimal Plus portion of project)](#analyzing-oher-texts-minimal-plus-portion-of-project)
+6. [Analyzing Les Miserables content using HathiTrust Data Capsule  (Extra credit option 2)](#analyzing-les-miserables-content-using-hathitrust-data-capsule-extra-credit-option-2)
+7. [Report and Deliverable](#report-and-deliverable)
 
 ## Introduction
 
@@ -282,26 +283,26 @@ Sign up with Professor Plale. Availability is on a first come, first serve basis
 
 For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit the portfolio of materials through Canvas.
 
-Report:  You will submit a report (DOC, DOCX, PDF) that must contain: 
+**Report**:  You will submit a report (DOC, DOCX, PDF) that must contain: 
   1. Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
   2. Answers the questions in Minimal, Minimal Plus, and Extra Credit Options 1 or 2 depending on which parts of the project you decide to do. 
 
-Minimal: Everyone does the Les Miserables analysis, so your report must include below:
+**Minimal**: Everyone does the Les Miserables analysis, so your report must include below:
   1. Is a window of size 15 a good window size for the characters that you think are related?  
   2. What are the strengths and weaknesses of a larger window size?  Give an example of a relationship that was missed because of a window size of N=15
   3. Include a copy of the network graph (or portion of it) that you generated for the characters in Les Miserables from Gephi (PDF)
 
-Minimal Plus:   For those who carried out the Les Miserables analysis plus analysis over own content, your report will include all for "Minimal" plus three steps below:
+**Minimal Plus**:   For those who carried out the Les Miserables analysis plus analysis over own content, your report will include all for "Minimal" plus three steps below:
   1. When you analyzed texts of your own choosing that you're familiar with or interested in, did you glean any insights from this type of analysis that would be harder to glean from a simple readthrough?
   2. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose (PDF)
   3. An archive containing the text(s) you chose to analyze (ZIP).
 
-Extra Credit Option 1: Going a Step Beyond in Refinement and Quality Analysis:  Your report will include Minimal and Minimal Plus as well as below: 
+**Extra Credit Option 1**: Going a Step Beyond in Refinement and Quality Analysis:  Your report will include Minimal and Minimal Plus as well as below: 
   1. When you extract the characters, create the network representation and apply the network analysis algorithms, there is some fine-tuning of the algorithms that needs to happen. Try exhaustively cleaning your list of characters, adjusting the parameter values for the length of the text window, or the number of communities. How do the results differ? Did you need to do a lot of fine-tuning to produce a visualization that was useful and easy to understand? What ways of automating this fine-tuning can you think of?
   2. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning that you carried out (PDF)
   3. An archive containing the text(s) you chose to analyze in the second part of the project (ZIP)
 
-Extra Credit Option 2: Analysis using HathiTrust Data Capsules:   Your report will include Minimal and Minimal Plus as well as below:  
+**Extra Credit Option 2**: Analysis using HathiTrust Data Capsules:   Your report will include Minimal and Minimal Plus as well as below:  
   1. Your report should include a discussion of issues that you encountered (you will be helping develop a stronger Data Capsule)
   2. Carry out a comparison of the network graph that you produced for the Gutenberg book against the network graph generaged on the content in HathiTrust digital library.   Offer explanations for the differences that you see.  
   3.  Include a copy of the graph (or portion of it) that you generated for the characters (PDF)  
