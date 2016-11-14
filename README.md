@@ -101,7 +101,7 @@ $ python
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
 >>> db = mongodb.projectA
->>> with open('data/lesmis.txt', 'r') as f: text = f.read()
+>>> with open('data/les-mis.txt', 'r') as f: text = f.read()
 >>> db.books.insert({'author': 'Victor Hugo', 'title': 'Les Miserables', 'text': text})
 ```
 
@@ -198,10 +198,10 @@ We are going to save the network as a file, so we can use network analysis and v
 
 ```python
 import networkx as nx
-nx.write_gml(network, os.path.join('networks', 'lesmis.gml'))
+nx.write_gml(network, os.path.join('networks', 'les-mis.gml'))
 ```
 
-The details of the command above are not important. Suffice it to say, an `lesmis.gml` file will appear in the `networks` folder of your project.
+The details of the command above are not important. Suffice it to say, an `les-mis.gml` file will appear in the `networks` folder of your project.
 
 If you look at the file that was generated, you will see something that looks like this:
 ```
