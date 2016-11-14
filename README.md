@@ -30,7 +30,7 @@ In this project you will create a database of books and learn how to analyze and
 
 You will follow the case study, then if you choose, you will identify other content to analyze and share your insights.
 
-**Project grading is as follows:**  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    
+**Project grading is as follows:**  a student who follows instructions, does the entity recognition analysis for Les Miserables, writes a reasonable report about his or her interpretations of the results, and submits all required documents will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    
 
 **Extra Credit: Option 1 Going a Step Beyond in Refinement and Quality Analysis:**  A student engages in an exceptional analysis using both originally chosen content, parameter tuning, data cleaning, and analysis interpretation (such as meaningfully interpreting results through steps of cleaning) will receive up to 10 extra credit points.    
 
