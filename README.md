@@ -30,7 +30,7 @@ In this project you will create a database of books and learn how to analyze and
 
 You will follow the case study, then if you choose, you will identify other content to analyze and share your insights.
 
-The project will be graded as follows:  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    A student who does something exceptional in both the content that he or she is analyzing and how he or she is interpreting the analysis results will recieve up to 103 points. 
+The project will be graded as follows:  a student who follows instructions, does the entity recognition analysis for Les Miserables, and writes a reasonable report about his or her interpretations of the results will receive up to 93 points.  A student who selects new content to analyze and chooses the content in a way that reasoned interpretation is possible (the content is coherent with respect to characters), and further that the student demonstrates through their report that they carried out a reasoned intrepetation of the analysis results will receive a grade of up to 100%.    A student who does something exceptional in both the content that he or she is analyzing and how he or she is interpreting the analysis results will receive up to 103 points. 
 
 ## Prerequisites
 
@@ -275,19 +275,16 @@ For this project you will submit a portfolio that contains a final report and fi
 1 b. Answers the questions in 3-5 below depending on which parts of the project you decided to do. 
 
 2. For those who carried out Les Miserables analysis, your report will answer 2a-2b, and you will submit file 2c.  
-
 2a. Is a window of size 15 a good window size for the characters that you think are related?  
 2b. What are the strengths and weaknesses of a larger window size?  Give an example of a relationship that was missed because of a window size of N=15
 2c.  Include a copy of the network graph (or portion of it) that you generated for the characters in Les Miserables from Gephi (PDF)
 
 3.  For those who carried out the Les Miserables analysis plus analysis over their own content, your report will answer 2a-2b, submit file 2c, plus answer 3a and submit 3b and 3c:
-
 3a.  When you analyzed texts of your own choosing that you're familiar with or interested in, did you glean any insights from this type of analysis that would be harder to glean from a simple readthrough?
 3b.  Include a copy of the graph (or portion of it) that you generated for the characters in content you chose (PDF)
 3c.  An archive containing the text(s) you chose to analyze (ZIP).
 
 4. For those who carried out the Les Miserables analysis plus analysis over their own content, plus carried out analysis beyond, your report will include all of the above plus answer 4a and include 4b and 4c:
-
 4a. When you extract the characters, create the network representation and apply the network analysis algorithms, there is some fine-tuning of the algorithms that needs to happen. Try exhaustively cleaning your list of characters, adjusting the parameter values for the length of the text window, or the number of communities. How do the results differ? Did you need to do a lot of fine-tuning to produce a visualization that was useful and easy to understand? What ways of automating this fine-tuning can you think of?
 4b.  Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning suggested in 4a (PDF)
 4c.  An archive containing the text(s) you chose to analyze in the second part of the project (ZIP)
