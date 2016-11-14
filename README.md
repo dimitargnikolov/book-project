@@ -259,7 +259,7 @@ To make your life easier, we'll provide you with a function that can import a co
 
 ```python
 >>> from lib import *
->>> insert_txt_to_mongodb('data/')
+>>> insert_texts_to_mongodb('data/')
 ```
 
 The script will insert any `.txt` file in the `data` directory in MongoDB with attribute `title` set as the name of the file, and attribute `text` set to the text inside the file.
@@ -271,21 +271,21 @@ Using this script, you are not limited to a single book or document.
 For this project you will submit a portfolio that contains a final report and files that demonstrate your work.  You will submit to the Canvas assignment for the project.
 
 1. The report (DOC, DOCX, PDF) that you write must contain: 
-1 a. Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
-1 b. Answers the questions in 3-5 below depending on which parts of the project you decided to do. 
+  a. Lists all sources of help that you consulted, including other students. You need not mention AIs nor class resources. 
+  b. Answers the questions in 3-5 below depending on which parts of the project you decided to do. 
 
 2. For those who carried out Les Miserables analysis, your report will answer 2a-2b, and you will submit file 2c.  
-2a. Is a window of size 15 a good window size for the characters that you think are related?  
-2b. What are the strengths and weaknesses of a larger window size?  Give an example of a relationship that was missed because of a window size of N=15
-2c.  Include a copy of the network graph (or portion of it) that you generated for the characters in Les Miserables from Gephi (PDF)
+  a. Is a window of size 15 a good window size for the characters that you think are related?  
+  b. What are the strengths and weaknesses of a larger window size?  Give an example of a relationship that was missed because of a window size of N=15
+  c. Include a copy of the network graph (or portion of it) that you generated for the characters in Les Miserables from Gephi (PDF)
 
-3.  For those who carried out the Les Miserables analysis plus analysis over their own content, your report will answer 2a-2b, submit file 2c, plus answer 3a and submit 3b and 3c:
-3a.  When you analyzed texts of your own choosing that you're familiar with or interested in, did you glean any insights from this type of analysis that would be harder to glean from a simple readthrough?
-3b.  Include a copy of the graph (or portion of it) that you generated for the characters in content you chose (PDF)
-3c.  An archive containing the text(s) you chose to analyze (ZIP).
+3. For those who carried out the Les Miserables analysis plus analysis over their own content, your report will answer 2a-2b, submit file 2c, plus answer 3a and submit 3b and 3c:
+  a. When you analyzed texts of your own choosing that you're familiar with or interested in, did you glean any insights from this type of analysis that would be harder to glean from a simple readthrough?
+  b. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose (PDF)
+  c. An archive containing the text(s) you chose to analyze (ZIP).
 
 4. For those who carried out the Les Miserables analysis plus analysis over their own content, plus carried out analysis beyond, your report will include all of the above plus answer 4a and include 4b and 4c:
-4a. When you extract the characters, create the network representation and apply the network analysis algorithms, there is some fine-tuning of the algorithms that needs to happen. Try exhaustively cleaning your list of characters, adjusting the parameter values for the length of the text window, or the number of communities. How do the results differ? Did you need to do a lot of fine-tuning to produce a visualization that was useful and easy to understand? What ways of automating this fine-tuning can you think of?
-4b.  Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning suggested in 4a (PDF)
-4c.  An archive containing the text(s) you chose to analyze in the second part of the project (ZIP)
+  a. When you extract the characters, create the network representation and apply the network analysis algorithms, there is some fine-tuning of the algorithms that needs to happen. Try exhaustively cleaning your list of characters, adjusting the parameter values for the length of the text window, or the number of communities. How do the results differ? Did you need to do a lot of fine-tuning to produce a visualization that was useful and easy to understand? What ways of automating this fine-tuning can you think of?
+  b. Include a copy of the graph (or portion of it) that you generated for the characters in content you chose that went through the cleaning suggested in 4a (PDF)
+  c. An archive containing the text(s) you chose to analyze in the second part of the project (ZIP)
 

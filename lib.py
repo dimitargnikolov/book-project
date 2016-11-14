@@ -1,6 +1,7 @@
 import os, nltk
 import networkx as nx
 from operator import itemgetter
+from pymongo import MongoClient
 
 
 def tag_texts(mongo_results):
@@ -133,5 +134,39 @@ def create_network(tagged_texts, characters, max_distance=15):
 	return G
 
 
+def insert_or_replace_doc(filepath):
+	title = os.path.splitext(os.path.basename(filepath))[0].lower()
+	with open(filepath, 'r') as f:
+		text = f.read()
+
+	mongodb = MongoClient()
+	db = mongodb.projectA
+	mongo_results = db.books.find({'title': title})
+	if mongo_results.count() > 0:
+		db.books.replace_one({'title': title}, {'title': title, 'text': text})
+	else:
+		db.books.insert_one({'title': title, 'text': text})
+
+
+def insert_texts_to_mongodb(dirpath):
+	if not os.path.exists(dirpath):
+		raise ValueError('The directory you specified does not exist: %s. Make sure you entered the Python shell from inside your project directory, ~/Projects/book-project.' % dirpath)
+
+	if os.path.isfile(dirpath):
+		if os.path.splitext(dirpath)[1].lower() == '.txt':
+			insert_or_replace_doc(dirpath)
+		else:
+			raise ValueError('You supplied the name of a file that does not have the .txt extension. Please, either specify a .txt file, or a folder containing .txt files as the argument for this function.')
+	else:
+		files = os.listdir(dirpath)
+		txt_found = False
+		for f in files:
+			if os.path.splitext(f)[1].lower() == '.txt':
+				txt_found = True
+				insert_or_replace_doc(os.path.join(dirpath, f))
+
+		if not txt_found:
+			raise ValueError('Not .txt files were found in the directory you provided as an argument.')
+	
 if __name__ == '__main__':
 	print('This file is meant to be imported into other code, not to be run directly.')
