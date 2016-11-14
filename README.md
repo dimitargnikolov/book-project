@@ -1,4 +1,4 @@
-# I435 / I535 / B669 Project B: Using Text and Network Analysis Tools to Analyze Large Text Corpora
+# I435 / I535 / B669 Project B: Analyzing Large Text Corpora
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -36,26 +36,35 @@ You need to be familiar with what we have been covering during the last several 
 
 2. Be able to upload files to your Jetstream instance. If you don't know how to do this, please refer to the [Setting Up SSH Keys](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Generating_SSH_Key.pdf) and [Transfering files to Jetstream](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/Transfering_Files_to_Jetstream.pdf) tutorials.
 
+3. Have the [Linux command cheat sheet](https://iudatascience.soic.scholargrid.org/asset-v1:iudatascience+I535-I435-B669+FALL_2016+type@asset+block/LinuxCommandsCheatSheet.pdf) we posted earlier in the class handy.
+
 ## Setup
 
-### Project Files
+### Use of Jetstream
 
-You need to set up a directory for the project and download the project files using Git, a popular system for version control and project file management.
+We will continue to use Jetstream in this project. With a new allocation and the issues from a couple weeks ago largely resolved, this time you should have a smooth experience if you follow these instructions.
+
+There is a new image for this project that comes pre-loaded with necessary software such as Python and mongodb. Head on over to [use.jetstream-cloud.org](https://use.jetstream-cloud.org) and create a new instance of the *I435/I535/B669 Project B* image (created either by user *atmoadmin* or *dnikolov*). You can find the image by searching for **I435**:
+
+![Project image on Jetstream.](images/jetstream-image.png "Project image on Jetstream.")
+
+When you create the new instance, please use the *Jetstream - TACC* provider and the *tiny* instance size to avoid any hanging issues or needlessly spending our allocation:
+
+![Creating a new instance.](images/create-instance.png "Creating a new instance.")
+
+Unless otherwise noted, all commands in this document should be executed on your Jetstream instance.
+
+### Set Up Directories and Download Code
+
+You need to set up a directory for the project and download the code for it using **Git**, a popular system for version control and project file management.
 
 ```
 $ mkdir ~/Projects
 $ cd ~/Projects
-$ git clone https://github.iu.edu/dnikolov/i435-projectA
-$ cd i435-projectA
+$ git clone https://github.com/dimitargnikolov/book-project.git
+$ cd book-project
 ```
-
-### Additional Setup Tasks
-
-```
-$ mongo
-> use projectA
-> db.createCollection('books')
-```
+Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
 
 ## Case Study: The Characters Network for *Les Miserables*
 
@@ -65,13 +74,13 @@ In this case study, you will be walked through all the steps needed to extract a
 
 We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/i435-projectA/data` directory as `lesmis.txt`. You can do all this from the command line as follows: 
 ```
-$ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/i435-projectA/data/lesmis.txt
+$ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/book-project/data/lesmis.txt
 ```
 
 Next, you need to insert the contents of the book in the `books` collection in MongoDB. As mentioned in the introduction, to do this, you will use Python and its PyMongo extension instead of the MongoDB shell, because Python provides the environment and libraries to complete not only this, but other necessary tasks such as reading files, running syntactic analysis and gathering statistics about the text.
 
 ```
-$ cd ~/Projects/i435-projectA
+$ cd ~/Projects/book-project
 $ python
 >>> import pymongo
 >>> from pymongo import MongoClient
@@ -203,7 +212,7 @@ graph [
 
 To analyze this network, you will use the [Gephi graph analysis and visualization platform](). We have created a video tutorial for this step that you can find [here](). At the end of the tutorial, you will produce a visualization of the characters in *Les Miserables*. Your visualization should end up looking similar to this:
 
-![Visualization of the characters of Les Miserables.](les-mis.png "Visualization of the characters of Les Miserables.")
+![Visualization of the characters of Les Miserables.](images/les-mis.png "Visualization of the characters of Les Miserables.")
 
 
 ## Analyzing Other Texts
