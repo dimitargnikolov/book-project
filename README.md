@@ -15,7 +15,7 @@
   2. [Extracting the Characters from a Book](#extracting-the-characters-from-a-book)
   3. [Inferring Character Relationships](#inferring-character-relationships)
   4. [Analyzing and Visualizing the Network of Characters](#analyzing-and-visualizing-the-network-of-characters)
-5. [Analyzing Other Texts (Minimal Plus portion of project)](#analyzing-oher-texts-minimal-plus-portion-of-project)
+5. [Analyzing Other Texts (Minimal Plus portion of project)](#analyzing-other-texts-minimal-plus-portion-of-project
 6. [Analyzing Les Miserables content using HathiTrust Data Capsule (Extra credit option 2)](#analyzing-les-miserables-content-using-hathitrust-data-capsule-extra-credit-option-2)
 7. [Report and Deliverable](#report-and-deliverable)
 
