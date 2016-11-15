@@ -95,7 +95,7 @@ In this case study, we will walk you through all the steps needed to extract and
 
 1. Insert your text(s) in MongoDB.
 2. Write a `find` query to retrieve all the texts from MongoDB.
-3. Pass the results of the query to the `load_text` and `find_people` functions to find any people mentioned in the text.
+3. Pass the results of the query to the `tag_texts` and `find_people` functions to find any people mentioned in the text.
 4. Clean up the list of people using the `remove` command.
 5. Use the `create_network` function to create a network representation of the relationships between people in the texts.
 6. Use Gephi to find important characters and groups of similar characters in the network.
@@ -260,7 +260,7 @@ The case study gives you the tools to analyze any collection of texts and extrac
 
 1. Insert your text(s) in MongoDB.
 2. Write a `find` query to retrieve all the texts from MongoDB.
-3. Pass the results of the query to the `load_text` and `find_people` functions to find any people mentioned in the text.
+3. Pass the results of the query to the `tag_texts` and `find_people` functions to find any people mentioned in the text.
 4. Clean up the list of people using the `remove` command.
 5. Use the `create_network` function to create a network representation of the relationships between people in the texts.
 6. Use Gephi to find important characters and groups of similar characters in the network.
