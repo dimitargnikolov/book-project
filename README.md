@@ -55,7 +55,7 @@ There is a new image for this project that comes pre-loaded with necessary softw
 
 ![Project image on Jetstream.](images/jetstream-image.png "Project image on Jetstream.")
 
-When you create the new instance, please use the **Jetstream - TACC** provider and the **tiny** instance size to avoid any hanging issues or needlessly spending our allocation:
+When you create the new instance, please use the **tiny** instance size to avoid needlessly spending our allocation. In addition, try both the **Jetstream - TACC** and **Jetstream - Indiana University** providers in case you run into any issues starting the instance:
 
 ![Creating a new instance.](images/create-instance.png "Creating a new instance.")
 
