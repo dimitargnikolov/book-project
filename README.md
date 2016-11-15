@@ -227,7 +227,7 @@ Here, we are using a window of 15 characters (the italicized portion of text). W
 We've done all of this for you in `lib.py`, so you can simply use the following function to create the network representation:
 
 ```python
-network = create_network(tagged_texts, chars, N=15) 
+>>> network = create_network(tagged_texts, chars, N=15) 
 ```
 
 Note that the number of characters in the sliding window can be specified. In this case, it's `N=15`.
@@ -235,8 +235,9 @@ Note that the number of characters in the sliding window can be specified. In th
 We are going to save the network as a file, so we can use network analysis and visualization tools on it:
 
 ```python
-import networkx as nx
-nx.write_gml(network, os.path.join('networks', 'les-mis.gml'))
+>>> import networkx as nx
+>>> os.makedirs('networks')
+>>> nx.write_gml(network, os.path.join('networks', 'les-mis.gml'))
 ```
 
 The details of the command above are not important. Suffice it to say, an `les-mis.gml` file will appear in the `networks` folder of your project.
