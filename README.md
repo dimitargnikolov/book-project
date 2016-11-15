@@ -93,7 +93,7 @@ Finally, you need to install `pymongo`, an extension to Python that allows you t
 $ cd ~/Downloads
 $ git clone git://github.com/mongodb/mongo-python-driver.git pymongo
 $ cd pymongo
-$ sudo python setup.py install
+$ sudo /opt/anaconda/bin/python setup.py install
 ```
 
 With this, the setup of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory:
