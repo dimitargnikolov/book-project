@@ -115,7 +115,7 @@ In this case study, we will walk you through all the steps needed to extract and
 
 ### Adding a Book to MongoDB
 
-We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/book-projectA/data` directory as `les-mis.txt`. You can do all this from the command line as follows:
+We'll start with a single book, *Les Miserables*, that you can download from [Project Gutenberg](https://www.gutenberg.org/). From the main page, you can go to *Book Search Page*, then *Popular*, and click on the book title towards the top of the list (third position as of Oct 3, 2016). From the download page, choose the **Plain Text UTF-8** format and download it to your `~/Projects/book-project/data` directory as `les-mis.txt`. You can do all this from the command line as follows:
 
 ```
 $ wget https://www.gutenberg.org/files/135/135-0.txt -O ~/Projects/book-project/data/les-mis.txt
@@ -131,14 +131,14 @@ $ python
 >>> import pymongo
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
->>> db = mongodb.projectA
+>>> db = mongodb.projectB
 >>> with open('data/les-mis.txt', 'r') as f: text = f.read()
 >>> db.books.insert({'author': 'Victor Hugo', 'title': 'Les Miserables', 'text': text})
 ```
 
 You will notice that as soon as you type `python` the shell symbol changes from the familiar `$` to `>>>`. This means you are in the Python shell (as opposed to the system shell). You can exit the Python shell at any time by pressing `Ctrl-D`.
 
-The first four lines from the Python shell above set up access to MongoDB and the `projectA` database through the `db` variable. From there on, you can use `db` to execute MongoDB statements in an almost identical way to what you're used to from the MongoDB shell shown to you during discussion.
+The first four lines from the Python shell above set up access to MongoDB and the `projectB` database through the `db` variable. From there on, you can use `db` to execute MongoDB statements in an almost identical way to what you're used to from the MongoDB shell shown to you during discussion.
 
 The fifth line, reads the contents of the book that you downloaded and stores it in the variable `text`. In Python, you can see the contents of a variable at any time by typing its name, so if you type
 
@@ -170,7 +170,7 @@ First, you need to make sure you have access to MongoDB so you can load the cont
 >>> import pymongo
 >>> from pymongo import MongoClient
 >>> mongodb = MongoClient()
->>> db = mongodb.projectA
+>>> db = mongodb.projectB
 >>> mongo_results = db.books.find({'title': 'Les Miserables'})
 ```
 
@@ -286,7 +286,7 @@ The case study gives you the tools to analyze any collection of texts and extrac
 
 For this part of the project, repeat this analysis for a book or a collection of texts of your choosing. You can take another book from Project Gutenberg, a set of books who share characters, or a set of news articles or blog entries. The source and format of the text is up to you, as long as you can import it into MongoDB.
 
-To make your life easier, we'll provide you with a function that can import a collection of text files into MongoDB. Say, you've collected your texts as plain-text files and you've uploaded them to your Jetstream instance in `~/Projects/i435-projectA/data`. Then, you can important all these files in the Python shell as follows:
+To make your life easier, we'll provide you with a function that can import a collection of text files into MongoDB. Say, you've collected your texts as plain-text files and you've uploaded them to your Jetstream instance in `~/Projects/book-project/data`. Then, you can important all these files in the Python shell as follows:
 
 ```python
 >>> from lib import *
