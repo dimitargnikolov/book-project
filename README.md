@@ -133,6 +133,7 @@ $ python
 >>> mongodb = MongoClient()
 >>> db = mongodb.projectB
 >>> with open('data/les-mis.txt', 'r') as f: text = f.read()
+... <PRESS ENTER HERE>
 >>> db.books.insert({'author': 'Victor Hugo', 'title': 'Les Miserables', 'text': text})
 ```
 
