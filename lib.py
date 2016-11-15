@@ -4,11 +4,26 @@ from operator import itemgetter
 from pymongo import MongoClient
 
 
+
+def remove_gutenberg_meta_data(text):
+	start = text.find('START OF THIS PROJECT GUTENBERG EBOOK')
+	end = text.find('END OF THIS PROJECT GUTENBERG EBOOK')
+
+	if start != -1 and end != -1:
+		start = text.find('\n', start)
+		if start != -1 and start < end:
+			return text[start:end].replace('_', '')
+		else:
+			return text
+	else:
+		return text
+
+
 def tag_texts(mongo_results):
 	#text = 'The President invited Andrea and Reijo Nikolov to his house.'
 	tagged_texts = []
 	for result in mongo_results:
-		text = result['text']
+		text = remove_gutenberg_meta_data(result['text'])
 		sentences = nltk.sent_tokenize(text)
 		words = [nltk.word_tokenize(sentence) for sentence in sentences]
 		tagged_words = [nltk.pos_tag(sentence) for sentence in words]
@@ -130,8 +145,10 @@ def create_network(tagged_texts, characters, max_distance=15):
 			if network[char1][char2] > 0:
 				if char1 not in G or (char1 in G and char2 not in G.neighbors(char1)):
 					G.add_edge(char1, char2, weight=network[char1][char2])
-					
-	return G
+
+	# only used the largest connected component
+	lcc = nx.Graph(max(nx.connected_component_subgraphs(G), key=len))
+	return lcc
 
 
 def insert_or_replace_doc(filepath):
@@ -170,3 +187,4 @@ def insert_texts_to_mongodb(dirpath):
 	
 if __name__ == '__main__':
 	print('This file is meant to be imported into other code, not to be run directly.')
+	
