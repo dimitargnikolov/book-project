@@ -87,7 +87,20 @@ $ cat ~/.bashrc
 
 All the script does is it creates two environmental variables -- one that allows the code to easily find your project directory, and the other, that makes sure your instance knows where to find the correct version of Python.
 
-With this, the setup of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory.
+Finally, you need to install `pymongo`, an extension to Python that allows you to use mongodb. You can download pymongo from Github and install it as follows:
+
+```
+$ cd ~/Downloads
+$ git clone git://github.com/mongodb/mongo-python-driver.git pymongo
+$ cd pymongo
+$ sudo python setup.py install
+```
+
+With this, the setup of your environment is done. You don't need to execute any of the previous steps again. Unless otherwise noted, all commands in this document should be executed on your Jetstream instance, inside the `~/Projects/book-project` directory:
+
+```
+$ cd ~/Projects/book-project
+```
 
 ## Case Study: The Characters Network for *Les Miserables*
 
