@@ -76,7 +76,7 @@ In addition, you need to copy the sample start-up script provided with the proje
 
 ```
 $ cp sample.bashrc ~/.bashrc
-$ source .bashrc
+$ source ~/.bashrc
 ```
 
 These commands create a start-up script called `.bashrc` in your home directory. `.bashrc` is a special file that Linux looks for when it starts up, and thus, it will be executed every time your instance starts. In this case, since you already have your instance started, we executed the file manually with the `source` command. You can take a look at the contents if you like:
