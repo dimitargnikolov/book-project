@@ -86,7 +86,7 @@ def count_char_occur(tagged_texts, characters):
 	return counts
 
 
-def create_network(tagged_texts, characters, max_distance=15):
+def create_network(tagged_texts, characters, N=15):
 	network = {}
 	
 	# initialize the network
@@ -107,7 +107,7 @@ def create_network(tagged_texts, characters, max_distance=15):
 		
 		# process the first window in the book, filling in the list of characters in the current window
 		curr_chars = {}
-		window = tokens[:max_distance]
+		window = tokens[:N]
 		for i in range(len(window)):
 			if window[i] in characters:
 				curr_chars[window[i]] = i + 1
@@ -120,7 +120,7 @@ def create_network(tagged_texts, characters, max_distance=15):
 						network[char1][char2] += 1
 						network[char2][char1] += 1
 
-		for i in range(max_distance, len(tokens)):
+		for i in range(N, len(tokens)):
 			# remove characters outside of the window
 			curr_char_names = list(curr_chars.keys())
 			for char in curr_char_names:
@@ -136,7 +136,7 @@ def create_network(tagged_texts, characters, max_distance=15):
 					if char != token:
 						network[char][token] += 1
 						network[token][char] += 1
-				curr_chars[token] = max_distance
+				curr_chars[token] = N
 
 	# make networkx graph
 	G = nx.Graph()

@@ -227,7 +227,7 @@ Here, we are using a window of 15 characters (the italicized portion of text). W
 We've done all of this for you in `lib.py`, so you can simply use the following function to create the network representation:
 
 ```python
-network = create_network(book, chars, N=15) 
+network = create_network(tagged_texts, chars, N=15) 
 ```
 
 Note that the number of characters in the sliding window can be specified. In this case, it's `N=15`.
