@@ -147,7 +147,7 @@ You now have the text of the book and in MongoDB for later use and analysis.
 
 ### Extracting the Characters from a Book
 
-Coming up with a list of all characters in a book would be a daunting task even for a book you are familiar with. Fortunately, we can automate this process using a technique called [named-entity recognition](). This technique uses knowledge about a language's grammar combined with statistical properties of text to assign entities in the text to pre-defined groups such as persons, organizations, locations and so on. The current state-of-the-art in named-entity recognition is not perfect, but it's pretty good and you will use it to extract a list of characters in *Les Miserables*.
+Coming up with a list of all characters in a book would be a daunting task even for a book you are familiar with. Fortunately, we can automate this process using a technique called [named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition). This technique uses knowledge about a language's grammar combined with statistical properties of text to assign entities in the text to pre-defined groups such as persons, organizations, locations and so on. The current state-of-the-art in named-entity recognition is not perfect, but it's pretty good and you will use it to extract a list of characters in *Les Miserables*.
 
 Named-entity recognition is a common task in natural language processing applications and algorithms for it have been implemented in many languages. We will use Python's `nltk` library to extract a list of person-entities from the book. However, even using these libraries can be a little tricky and beyong the scope of this project, so we have written some code that makes working with book text simple. The code is located in the `lib.py` file that came with th e project. You do not need to understand how the code in this file works, only how to use it. For example, loading the book and extracting the characters is simple.
 
@@ -171,16 +171,22 @@ You can load the text from the search results and run the character extraction a
 >>> chars = find_people(tagged_texts)
 ```
 
-If you now view the contents of the `chars` variable, you will see something like this:
+You can now view the contents of the `chars` variable to inspect them:
 
-The results are not perfect -- there are some characters that shouldn't be there like `Which`, `Project Gutenberg`, `Project Gutenberg-tm` and so on. This is in part due to the fact that the text we are working with is not entirely clean and contains a header and footer that is not actually part of the book. In part, this is due to the entity-extraction algorithm not being perfect and getting fooled by non-traditional capitalization in the book.
+```python
+>>> chars
+```
+
+The results are not perfect -- there are some characters that shouldn't be there like `A`, `Madame`, `Paris` and so on. This is in part due to the fact that the text we are working with is not entirely clean. In part, this is due to the entity-extraction algorithm not being perfect and getting fooled by non-traditional capitalization in the book.
 
 This is another illustration of the need for setting up a data pipeline to clean your data before it is analyzed. In this case, we will clean the data manually, since setting up a data pipeline is beyond the scope of this project. 
 
-You can quickly clean up the list of characters as follows:
+You can clean up the list of characters as follows:
 
 ```python
 >>> chars.remove('A')
+>>> chars.remove('Madame')
+>>> chars.remove('Paris')
 ...
 ```
 
@@ -188,7 +194,7 @@ Continue using the `remove` function as above for other strings that were extrac
 
 ### Inferring Character Relationships
 
-Now that you have a list of characters you are interested in analyzing, we want to infer how closely related they are to each other. What we mean by that is that characters who appear in the same scenes or talk to each other often, should be considered more closely related than characters who don't. We can represent the character relationships as a network where each node is a character, and each edge denotes the strength of relatedness between two nodes. Using a network representation like this is very powerful since it will later allow us to leverage a lot of knowledge about [network analysis]() and apply it directly to our problem in this project.
+Now that you have a list of characters you are interested in analyzing, we want to infer how closely related they are to each other. What we mean by that is that characters who appear in the same scenes or talk to each other often, should be considered more closely related than characters who don't. We can represent the character relationships as a network where each node is a character, and each edge denotes the strength of relatedness between two nodes. Using a network representation like this is very powerful since it will later allow us to leverage a lot of knowledge about [network analysis](https://en.wikipedia.org/wiki/Social_network_analysis) and apply it directly to our problem in this project.
 
 How do we determine how strong the edges between characters should be? We will derive this from the text of the book itself assuming that characters that appear close to each other on a page are also more closely related. Programatically, this involves scanning the text of the book using a sliding window of `N` characters and marking increasing the strength of relatedness between any characters who happen to be in the window at the same time. For example, consider this paragraph:
 
