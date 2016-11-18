@@ -157,7 +157,7 @@ def insert_or_replace_doc(filepath):
 		text = f.read()
 
 	mongodb = MongoClient()
-	db = mongodb.projectA
+	db = mongodb.projectB
 	mongo_results = db.books.find({'title': title})
 	if mongo_results.count() > 0:
 		db.books.replace_one({'title': title}, {'title': title, 'text': text})
