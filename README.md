@@ -222,7 +222,7 @@ How do we determine how strong the edges between characters should be? We will d
 > Pressure on both sides. The moment has arrived, it seems to me; let us
 > discuss the question."
 
-Here, we are using a window of 15 characters (the italicized portion of text). We start at the beginning of the paragraph and we already see that *Fantine*, *Dahlia* and *Zephine* appear close together, so we will update the network representation to strengthen the edge between the *Fantine* and *Dahlia*, *Fantine* and *Zephine*, and *Dahlia* and *Zephine* nodes.
+Here, we are using a window of 15 words (the italicized portion of text). We start at the beginning of the paragraph and we already see that *Fantine*, *Dahlia* and *Zephine* appear close together, so we will update the network representation to strengthen the edge between the *Fantine* and *Dahlia*, *Fantine* and *Zephine*, and *Dahlia* and *Zephine* nodes.
 
 We've done all of this for you in `lib.py`, so you can simply use the following function to create the network representation:
 
