@@ -4,7 +4,6 @@ from operator import itemgetter
 from pymongo import MongoClient
 
 
-
 def remove_gutenberg_meta_data(text):
 	start = text.find('START OF THIS PROJECT GUTENBERG EBOOK')
 	end = text.find('END OF THIS PROJECT GUTENBERG EBOOK')
@@ -20,7 +19,6 @@ def remove_gutenberg_meta_data(text):
 
 
 def tag_texts(mongo_results):
-	#text = 'The President invited Andrea and Reijo Nikolov to his house.'
 	tagged_texts = []
 	for result in mongo_results:
 		text = remove_gutenberg_meta_data(result['text'])
