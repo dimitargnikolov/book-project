@@ -1,9 +1,5 @@
 # I435 / I535 / B669 Project B: Analyzing Large Text Corpora
 
-*This project description is available electronically at* **https://github.com/dimitargnikolov/book-project** *. If you would like to be able to follow the links, please access the document there.*
-
-### Due: Monday, December 5 @ 11:59pm
-
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
